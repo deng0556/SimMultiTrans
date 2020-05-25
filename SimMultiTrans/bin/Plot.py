@@ -517,7 +517,7 @@ class Plot(object):
             'align': 'center',
             'values': ['Metric', 'Total', 'Rebalancing', 'Variance']
         }
-        reb_div = float(sum_trip['total']) if sum_trip['total'] != 0 else 1.0
+        reb_div = float(sum_trip['reb']) if sum_trip['reb'] != 0 else 1.0
 
         wait_y = np.array([y for y in wait_y if y != 0])
         thrpt_y = np.array([y for y in thrpt_y if y != 0])
