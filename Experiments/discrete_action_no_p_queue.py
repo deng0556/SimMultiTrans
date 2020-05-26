@@ -150,7 +150,7 @@ class TaxiRebalance(gym.Env, ABC):
         self.curr_time += self.reb_interval
         p_queue = np.array(p_queue)
         v_queue = np.array(v_queue)
-        reward = -self._beta*(p_queue.sum() +
+        reward = -self._beta*(0*p_queue.sum() +
                               self._alpha*self._vehicle_speed *
                               np.maximum((v_queue-p_queue).reshape((self._num_nodes, 1)) * action_mat *
                                          self._travel_time, 0).sum() )
@@ -212,8 +212,8 @@ if __name__ == '__main__':
             raise
 
     # NODES = sorted(pd.read_csv(os.path.join(CONFIG, 'aam.csv'), index_col=0, header=0).index.values.tolist())
-    NODES = sorted([236, 237, 186, 170, 141, 162, 140, 238, 142, 229, 239, 48, 161, 107, 263, 262, 234, 68, 100, 143])
-    # NODES = sorted([236, 237, 186, 170, 141])
+    # NODES = sorted([236, 237, 186, 170, 141, 162, 140, 238, 142, 229, 239, 48, 161, 107, 263, 262, 234, 68, 100, 143])
+    NODES = sorted([236, 237, 186, 170, 141])
     initial_vehicle = args.init_veh
     iterations = args.iter
     vehicle_speed = args.veh_speed
