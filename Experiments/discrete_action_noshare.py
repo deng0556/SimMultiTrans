@@ -231,7 +231,7 @@ if __name__ == '__main__':
     ray.init()
     nodes_list = [str(x) for x in NODES]
     configure = ppo.DEFAULT_CONFIG.copy()
-    # configure['vf_share_layers'] = False
+    configure['vf_share_layers'] = False
     configure['env'] = TaxiRebalance
     configure['num_workers'] = args.num_cpu if args.num_cpu is not None else 1
     configure['num_gpus'] = args.num_gpu if args.num_gpu is not None else 0
