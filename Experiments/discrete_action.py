@@ -150,14 +150,15 @@ class TaxiRebalance(gym.Env, ABC):
         self.curr_time += self.reb_interval
         p_queue = np.array(p_queue)
         v_queue = np.array(v_queue)
-        reward = -self._beta*(p_queue.sum() +
+        reward = -self._beta*(0*p_queue.sum() +
                               self._alpha*self._vehicle_speed *
                               np.maximum((v_queue-p_queue).reshape((self._num_nodes, 1)) * action_mat *
                                          self._travel_time, 0).sum() )
         # print(self._vehicle_speed)
-        # print(reward)
-        # print('passenger', p_queue)
-        # print('vehicle', v_queue)
+        #print('reward', reward)
+        #print('passenger', p_queue)
+        #print('vehicle', v_queue)
+        print(action_mat)
         # print(f'at node {v_queue.sum()}, on road {self._total_vehicle - v_queue.sum()}')
         # print(f'action diff {np.linalg.norm(self._pre_action-action)}')
         self._pre_action = action
