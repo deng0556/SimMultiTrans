@@ -1,11 +1,11 @@
 {
     "iter": 3000,
-    "init_veh": 30,
+    "init_veh": 50,
     "nodes": [236, 237, 186, 170, 141, 162, 140, 238, 142, 229, 239, 48, 161, 107, 263, 262, 234, 68, 100, 143],
     "lambda": 1.0,
     "rollout_fragment_length": 120,
     "train_batch_size": 4000,
-    "num_workers": 60,
+    "num_workers": 40,
     "num_gpus": 0,
     "sgd_minibatch_size": 128,
     "num_sgd_iter": 30,
@@ -29,7 +29,7 @@
         "alpha": 1,
         "beta": 1,
         "save_res_every_ep": 100,
-        "near_neighbor": 6,
+        "near_neighbor": 15,
         "veh_speed": 10
     }
 }

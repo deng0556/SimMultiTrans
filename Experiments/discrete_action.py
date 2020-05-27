@@ -177,7 +177,7 @@ if __name__ == '__main__':
     parser = ap.ArgumentParser(prog="Taxi Rebalance", description="CLI input to Taxi Rebalance")
     parser.add_argument('--config', nargs='?', metavar='<Configuration file path>',
                         type=str, default='None')
-    parser.add_argument('--init_veh', nargs='?', metavar='<Initial vehicle per node>', type=int, default=16)
+    parser.add_argument('--init_veh', nargs='?', metavar='<Initial vehicle per node>', type=int, default=20)
     parser.add_argument('--num_cpu', nargs='?', metavar='<Number of CPU workers>', type=int, default=1)
     parser.add_argument('--num_gpu', nargs='?', metavar='<Number of GPU workers>', type=int, default=0)
     parser.add_argument('--iter', nargs='?', metavar='<Number of iterations>', type=int, default=1)
@@ -212,8 +212,9 @@ if __name__ == '__main__':
             raise
 
     # NODES = sorted(pd.read_csv(os.path.join(CONFIG, 'aam.csv'), index_col=0, header=0).index.values.tolist())
-    NODES = sorted([236, 237, 186, 170, 141, 162, 140, 238, 142, 229, 239, 48, 161, 107, 263, 262, 234, 68, 100, 143])
+    # NODES = sorted([236, 237, 186, 170, 141, 162, 140, 238, 142, 229, 239, 48, 161, 107, 263, 262, 234, 68, 100, 143])
     # NODES = sorted([236, 237, 186, 170, 141])
+    NODES = sorted([236, 237, 186, 170, 141, 162, 140, 238, 142, 229])
     initial_vehicle = args.init_veh
     iterations = args.iter
     vehicle_speed = args.veh_speed
