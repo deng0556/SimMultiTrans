@@ -159,6 +159,7 @@ class TaxiRebalance(gym.Env, ABC):
         print('passenger', p_queue)
         print('vehicle', v_queue)
         print('action',action_mat)
+        print('reward', reward)
         # print(f'at node {v_queue.sum()}, on road {self._total_vehicle - v_queue.sum()}')
         # print(f'action diff {np.linalg.norm(self._pre_action-action)}')
         self._pre_action = action
