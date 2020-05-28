@@ -302,15 +302,16 @@ class Plot(object):
         else:
             suffix = "_" + suffix
         fig_dict = {'data': [], 'layout': {}}
-        fig_dict['layout']['xaxis'] = {'title': 'Time'}
+        fig_dict['layout']['xaxis'] = {'title': 'Time', 'titlefont': {'size': 26}, 'tickfont': {'size': 24}}
         fig_dict['layout']['xaxis']['ticktext'] = [
             (timedelta(seconds=t) + self.start_time).strftime('%H:%M:%S') for t in
             range(0, self.time_horizon, int(self.time_horizon / 10))
         ]
         fig_dict['layout']['xaxis']['tickvals'] = [t for t in range(0, self.time_horizon, int(self.time_horizon / 10))]
-        fig_dict['layout']['yaxis'] = {'title': f'Imbalance: # passengers - # {mode}'}
+        fig_dict['layout']['yaxis'] = {'title': f'Imbalance: # passengers - # {mode}' ,'titlefont': {'size': 26}, 'tickfont': {'size': 24}}
         fig_dict['layout']['hovermode'] = 'closest'
         fig_dict['layout']['title'] = 'Changing of Imbalance'
+        fig_dict['layout']['titlefont'] = {'size': 40}
 
         # fig = go.Figure()
         x = np.arange(start=0, stop=self.time_horizon, step=1)
