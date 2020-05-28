@@ -1,0 +1,1 @@
+{"Time_horizon": 36000, "Start_time": "08:00:00", "End_time": "18:00:00", "Duration": 80635.06061697006, "Vehicle": ["taxi"], "Routing_method": "simplex", "Rebalancing_method": "Simplified_MaxWeight"}
