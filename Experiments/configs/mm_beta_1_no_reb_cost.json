@@ -25,7 +25,7 @@
         "max_travel_time": 1000,
         "max_passenger": 1e6,
         "plot_queue_len": false,
-        "dispatch_rate": 0.2,
+        "dispatch_rate": 1,
         "alpha": 0,
         "beta": 1,
         "save_res_every_ep": 100,
