@@ -271,7 +271,7 @@ if __name__ == '__main__':
     # print(configure['num_workers'])
 
     trainer = ppo.PPOTrainer(config=configure)
-    trainer.restore('/home/cc/checkpoint-6000')
+    trainer.restore('/home/cc/checkpoint-2000')
     # import cProfile, pstats, io
     # from pstats import SortKey
     # pr = cProfile.Profile()
