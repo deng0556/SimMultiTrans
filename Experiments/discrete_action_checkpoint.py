@@ -256,7 +256,7 @@ if __name__ == '__main__':
         "dispatch_rate": args.dpr,
         "alpha": args.alpha,
         "beta": args.beta,
-        "save_res_every_ep": 10,
+        "save_res_every_ep": 1,
         "veh_speed": vehicle_speed
     }
 
@@ -279,7 +279,7 @@ if __name__ == '__main__':
     for _ in range(iterations):
         print('Iteration:', _+1)
         results = trainer.train()
-        if (_+1) % 10 == 0:
+        if (_+1) % 100 == 0:
             print(pretty_print(results))
     # pr.disable()
     # s = io.StringIO()
