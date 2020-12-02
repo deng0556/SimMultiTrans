@@ -45,7 +45,7 @@ class TaxiRebalance(gym.Env, ABC):
         self._neighbor_map = self._get_neighbors()
         self._dispatch_rate = self._config['dispatch_rate']
 
-        self.action_space = MultiDiscrete([self._num_neighbors+1] * self._num_nodes)
+        self.action_space = MultiDiscrete([self._num_neighbors+1] *5* self._num_nodes)
         self.observation_space = Tuple((Box(0, self.max_passenger, shape=(self._num_nodes,), dtype=np.int64),
                                         Box(0, self.max_vehicle, shape=(self._num_nodes,), dtype=np.int64)))
         self._is_running = False
@@ -80,13 +80,15 @@ class TaxiRebalance(gym.Env, ABC):
         if np.isnan(action).sum() > 0:
             print(self._step)
             action = self.action_space.sample()
-        action = np.squeeze(action)
         action_mat = np.zeros((self._num_nodes, self._num_nodes))
-        for nd_idx, cnb in enumerate(action):
+        for _idx, cnb in enumerate(action):
+            nd_idx = _idx // 5
+            ac_idx = _idx % 5
             nb_idx = self._neighbor_map[self._nodes[nd_idx]][cnb]
-            action_mat[nd_idx, nb_idx] = self._dispatch_rate
+            dispatch_rate = (ac_idx+1) / 5
+            action_mat[nd_idx, nb_idx] = dispatch_rate
             if nb_idx != nd_idx:
-                action_mat[nd_idx, nd_idx] = 1 - self._dispatch_rate
+                action_mat[nd_idx, nd_idx] = 1 - dispatch_rate
             else:
                 action_mat[nd_idx, nd_idx] = 1
         sim_action = dict()
