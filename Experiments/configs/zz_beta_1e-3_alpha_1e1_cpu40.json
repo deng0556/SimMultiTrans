@@ -28,7 +28,7 @@
         "dispatch_rate": 0.2,
         "alpha": 1e1,
         "beta": 1e-3,
-        "save_res_every_ep": 100,
+        "save_res_every_ep": 1,
         "near_neighbor": 20,
         "veh_speed": 10
     }
